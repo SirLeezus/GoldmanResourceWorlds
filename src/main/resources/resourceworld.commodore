@@ -1,0 +1,6 @@
+resourceworld {
+  setspawn;
+  teleport {
+    world brigadier:string single_word;
+  }
+}
