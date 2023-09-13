@@ -3,6 +3,7 @@ package lee.code.resourceworlds.commands;
 import io.papermc.paper.threadedregions.scheduler.ScheduledTask;
 import lee.code.resourceworlds.ResourceWorlds;
 import lee.code.resourceworlds.commands.cmds.SetSpawnCMD;
+import lee.code.resourceworlds.commands.cmds.TeleportCMD;
 import lee.code.resourceworlds.lang.Lang;
 import lee.code.resourceworlds.menus.menu.ResourceWorldMenu;
 import lombok.Getter;
@@ -32,6 +33,7 @@ public class CommandManager implements CommandExecutor {
 
   private void storeSubCommands() {
     storeSubCommand(new SetSpawnCMD(resourceWorlds));
+    storeSubCommand(new TeleportCMD(resourceWorlds));
   }
 
   private void storeSubCommand(SubCommand subCommand) {

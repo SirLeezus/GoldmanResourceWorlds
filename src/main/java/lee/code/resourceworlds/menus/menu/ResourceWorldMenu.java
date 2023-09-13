@@ -54,8 +54,8 @@ public class ResourceWorldMenu extends MenuGUI {
         }
         getMenuSoundManager().playClickSound(player);
         player.teleportAsync(resourceWorlds.getCacheManager().getCacheWorld().getSpawn(resourceWorldItem.getResourceWorld().getDisplayName())).thenAccept(result -> {
-          if (result) player.sendMessage(Lang.PREFIX.getComponent(null).append(Lang.MENU_WORLD_TELEPORT_SUCCESSFUL.getComponent(new String[]{CoreUtil.capitalize(resourceWorldItem.getResourceWorld().getDisplayName())})));
-          else player.sendMessage(Lang.PREFIX.getComponent(null).append(Lang.MENU_WORLD_TELEPORT_FAILED.getComponent(new String[]{CoreUtil.capitalize(resourceWorldItem.getResourceWorld().getDisplayName())})));
+          if (result) player.sendMessage(Lang.PREFIX.getComponent(null).append(Lang.WORLD_TELEPORT_SUCCESSFUL.getComponent(new String[]{CoreUtil.capitalize(resourceWorldItem.getResourceWorld().getDisplayName())})));
+          else player.sendMessage(Lang.PREFIX.getComponent(null).append(Lang.WORLD_TELEPORT_FAILED.getComponent(new String[]{CoreUtil.capitalize(resourceWorldItem.getResourceWorld().getDisplayName())})));
         });
       });
   }
