@@ -9,10 +9,12 @@ import net.kyori.adventure.text.Component;
 public enum Lang {
   PREFIX("&#0076CD&lResource Worlds &6➔ "),
   USAGE("&6&lUsage: &e{0}"),
+  NEXT_RESTART("&eNext server restart!"),
   COMMAND_SET_SPAWN_SUCCESSFUL("&aYou successfully set the spawn for world &3{0} &ato your location."),
   MENU_WORLD_TELEPORT_SUCCESSFUL("&aYou successfully teleported to the resource world &3{0}&a!"),
   MENU_WORLD_TELEPORT_FAILED("&cFailed to teleport to resource world &3{0}&c."),
   MENU_RESOURCE_WORLD_TITLE("&#0076CD&lResource Worlds"),
+  MENU_RESOURCE_WORLD_TIMER_NAME("&c&lNext Reset&7: {0}"),
   LOG_WORLD_LOADED("The world {0} was successfully loaded!"),
   LOG_GOLDEN_COPY_SUCCESSFUL("The golden world for {0} was successfully copied!"),
   LOG_ERROR_GOLDEN_DIRECTORY_NOT_FOUND("Could not find directory {0} so world {1} was not loaded."),

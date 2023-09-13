@@ -3,6 +3,7 @@ package lee.code.resourceworlds.database.cache;
 import lee.code.resourceworlds.database.DatabaseManager;
 import lee.code.resourceworlds.database.handler.DatabaseHandler;
 import lee.code.resourceworlds.database.tables.ServerTable;
+import lee.code.resourceworlds.lang.Lang;
 import lee.code.resourceworlds.utils.CoreUtil;
 import lombok.Getter;
 
@@ -27,6 +28,7 @@ public class CacheServer extends DatabaseHandler {
   }
 
   public String getNextReset() {
-    return CoreUtil.parseTime(System.currentTimeMillis() - serverTable.getResourceWorldResetTime());
+    if (serverTable.getResourceWorldResetTime() < System.currentTimeMillis()) return Lang.NEXT_RESTART.getString();
+    return CoreUtil.parseTime(serverTable.getResourceWorldResetTime() - System.currentTimeMillis());
   }
 }

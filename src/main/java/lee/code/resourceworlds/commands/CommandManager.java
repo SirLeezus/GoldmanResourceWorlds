@@ -70,7 +70,7 @@ public class CommandManager implements CommandExecutor {
       }
     }
     if (sender instanceof Player player) {
-      resourceWorlds.getMenuManager().openMenu(new ResourceWorldMenu(resourceWorlds.getCacheManager().getCacheWorld()), player);
+      resourceWorlds.getMenuManager().openMenu(new ResourceWorldMenu(resourceWorlds), player);
     }
     return true;
   }
