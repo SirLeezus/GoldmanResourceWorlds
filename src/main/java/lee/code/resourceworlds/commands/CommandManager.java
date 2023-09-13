@@ -4,6 +4,7 @@ import io.papermc.paper.threadedregions.scheduler.ScheduledTask;
 import lee.code.resourceworlds.ResourceWorlds;
 import lee.code.resourceworlds.commands.cmds.SetSpawnCMD;
 import lee.code.resourceworlds.lang.Lang;
+import lee.code.resourceworlds.menus.menu.ResourceWorldMenu;
 import lombok.Getter;
 import lombok.NonNull;
 import org.bukkit.Bukkit;
@@ -68,7 +69,9 @@ public class CommandManager implements CommandExecutor {
         }
       }
     }
-    performAsync(sender, getSubCommand("help"), args);
+    if (sender instanceof Player player) {
+      resourceWorlds.getMenuManager().openMenu(new ResourceWorldMenu(resourceWorlds.getCacheManager().getCacheWorld()), player);
+    }
     return true;
   }
 

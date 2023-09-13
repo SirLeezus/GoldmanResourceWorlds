@@ -3,6 +3,7 @@ package lee.code.resourceworlds.utils;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
+import org.apache.commons.lang3.text.WordUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
@@ -51,5 +52,11 @@ public class CoreUtil {
     if (days != 0L) return "&e" + days + "&6d&e, " + hours + "&6h&e, " + minutes + "&6m&e, " + seconds + "&6s";
     else if (hours != 0L) return "&e" + hours + "&6h&e, " + minutes + "&6m&e, " + seconds + "&6s";
     else return minutes != 0L ? "&e" + minutes + "&6m&e, " + seconds + "&6s" : "&e" + seconds + "&6s";
+  }
+
+  @SuppressWarnings("deprecation")
+  public static String capitalize(String message) {
+    final String format = message.toLowerCase().replaceAll("_", " ");
+    return WordUtils.capitalize(format);
   }
 }

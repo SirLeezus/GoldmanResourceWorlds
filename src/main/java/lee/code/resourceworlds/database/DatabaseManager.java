@@ -83,7 +83,7 @@ public class DatabaseManager {
     }
     if (!cacheManager.getCacheWorld().hasWorlds()) {
       for (ResourceWorld resourceWorld : ResourceWorld.values()) {
-        final WorldTable worldTable = new WorldTable(resourceWorld.getName());
+        final WorldTable worldTable = new WorldTable(resourceWorld.getDisplayName());
         cacheManager.getCacheWorld().setWorldTable(worldTable);
         createWorldTable(worldTable);
       }

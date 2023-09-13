@@ -7,6 +7,5 @@ folia-supported: true
 commands:
   resourceworld:
     description: Open resource world menu.
-    permission: resourceworlds.command.resourceworlds
-    aliases: [resourceworlds]
-    usage: "/resourceworlds <world> <setspawn>"
+    permission: resourceworld.command.resourceworld
+    usage: "/resourceworld"

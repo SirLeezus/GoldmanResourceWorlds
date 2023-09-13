@@ -10,6 +10,6 @@ public enum ResourceWorld {
   NETHER_RESOURCE("world_resource_nether", World.Environment.NETHER),
   END_RESOURCE("world_resource_end", World.Environment.THE_END)
   ;
-  @Getter private final String name;
+  @Getter private final String displayName;
   @Getter private final World.Environment environment;
 }

@@ -6,6 +6,8 @@ import lee.code.resourceworlds.commands.TabCompletion;
 import lee.code.resourceworlds.database.CacheManager;
 import lee.code.resourceworlds.database.DatabaseManager;
 import lee.code.resourceworlds.managers.WorldManager;
+import lee.code.resourceworlds.menus.system.MenuListener;
+import lee.code.resourceworlds.menus.system.MenuManager;
 import lombok.Getter;
 import me.lucko.commodore.CommodoreProvider;
 import me.lucko.commodore.file.CommodoreFileReader;
@@ -17,6 +19,7 @@ public class ResourceWorlds  extends JavaPlugin {
   @Getter private WorldManager worldManager;
   @Getter private CacheManager cacheManager;
   @Getter private CommandManager commandManager;
+  @Getter private MenuManager menuManager;
   private DatabaseManager databaseManager;
 
   @Override
@@ -26,13 +29,19 @@ public class ResourceWorlds  extends JavaPlugin {
     databaseManager.initialize(false);
     this.worldManager = new WorldManager(cacheManager);
     this.commandManager = new CommandManager(this);
+    this.menuManager = new MenuManager();
 
     registerCommands();
+    registerListeners();
   }
 
   @Override
   public void onDisable() {
     databaseManager.closeConnection();
+  }
+
+  private void registerListeners() {
+    getServer().getPluginManager().registerEvents(new MenuListener(menuManager), this);
   }
 
   private void registerCommands() {

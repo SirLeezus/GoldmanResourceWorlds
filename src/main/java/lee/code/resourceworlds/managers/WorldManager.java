@@ -21,7 +21,7 @@ public class WorldManager {
   public WorldManager(CacheManager cacheManager) {
     this.shouldReset = cacheManager.getCacheServer().isResetReady();
     if (shouldReset) cacheManager.getCacheServer().setNextReset();
-    for (ResourceWorld resourceWorld : ResourceWorld.values()) loadWorld(resourceWorld.getName(), resourceWorld.getEnvironment());
+    for (ResourceWorld resourceWorld : ResourceWorld.values()) loadWorld(resourceWorld.getDisplayName(), resourceWorld.getEnvironment());
   }
 
   private void loadWorld(String name, World.Environment environment) {
