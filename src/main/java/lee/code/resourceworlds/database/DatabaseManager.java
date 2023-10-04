@@ -19,6 +19,7 @@ import java.sql.SQLException;
 
 public class DatabaseManager {
   private final ResourceWorlds resourceWorlds;
+  private final Object synchronizedThreadLock = new Object();
   private Dao<ServerTable, Integer> serverDao;
   private Dao<WorldTable, String> worldDao;
   private ConnectionSource connectionSource;
@@ -90,43 +91,51 @@ public class DatabaseManager {
     }
   }
 
-  private synchronized void createServerTable(ServerTable serverTable) {
-    Bukkit.getAsyncScheduler().runNow(resourceWorlds, scheduledTask -> {
-      try {
-        serverDao.createIfNotExists(serverTable);
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
-    });
+  private void createServerTable(ServerTable serverTable) {
+    synchronized (synchronizedThreadLock) {
+      Bukkit.getAsyncScheduler().runNow(resourceWorlds, scheduledTask -> {
+        try {
+          serverDao.createIfNotExists(serverTable);
+        } catch (SQLException e) {
+          e.printStackTrace();
+        }
+      });
+    }
   }
 
-  public synchronized void updateServerTable(ServerTable serverTable) {
-    Bukkit.getAsyncScheduler().runNow(resourceWorlds, scheduledTask -> {
-      try {
-        serverDao.update(serverTable);
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
-    });
+  public void updateServerTable(ServerTable serverTable) {
+    synchronized (synchronizedThreadLock) {
+      Bukkit.getAsyncScheduler().runNow(resourceWorlds, scheduledTask -> {
+        try {
+          serverDao.update(serverTable);
+        } catch (SQLException e) {
+          e.printStackTrace();
+        }
+      });
+    }
   }
 
-  private synchronized void createWorldTable(WorldTable worldTable) {
-    Bukkit.getAsyncScheduler().runNow(resourceWorlds, scheduledTask -> {
-      try {
-        worldDao.createIfNotExists(worldTable);
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
-    });
+  private void createWorldTable(WorldTable worldTable) {
+    synchronized (synchronizedThreadLock) {
+      Bukkit.getAsyncScheduler().runNow(resourceWorlds, scheduledTask -> {
+        try {
+          worldDao.createIfNotExists(worldTable);
+        } catch (SQLException e) {
+          e.printStackTrace();
+        }
+      });
+    }
   }
 
-  public synchronized void updateWorldTable(WorldTable worldTable) {
-    Bukkit.getAsyncScheduler().runNow(resourceWorlds, scheduledTask -> {
-      try {
-        worldDao.update(worldTable);
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
-    });
+  public void updateWorldTable(WorldTable worldTable) {
+    synchronized (synchronizedThreadLock) {
+      Bukkit.getAsyncScheduler().runNow(resourceWorlds, scheduledTask -> {
+        try {
+          worldDao.update(worldTable);
+        } catch (SQLException e) {
+          e.printStackTrace();
+        }
+      });
+    }
   }
 }
