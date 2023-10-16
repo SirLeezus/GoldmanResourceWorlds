@@ -3,4 +3,5 @@ resourceworld {
   teleport {
     world brigadier:string single_word;
   }
+  help;
 }
