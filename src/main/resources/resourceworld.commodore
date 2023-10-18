@@ -4,4 +4,5 @@ resourceworld {
     world brigadier:string single_word;
   }
   help;
+  reset;
 }

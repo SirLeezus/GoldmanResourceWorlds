@@ -40,7 +40,7 @@ public class WorldManager {
   }
 
   private void copyGoldenWorld(String name, World.Environment environment) {
-    final File worldDirectory = new File("./ResourceWorlds/" + name);
+    final File worldDirectory = new File("./resource_worlds/" + name);
     if (!worldDirectory.exists()) {
       Bukkit.getLogger().info(Lang.LOG_ERROR_GOLDEN_DIRECTORY_NOT_FOUND.getString(new String[]{worldDirectory.getPath(), name}));
       createWorld(name, environment);

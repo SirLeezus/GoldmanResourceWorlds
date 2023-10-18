@@ -22,6 +22,11 @@ public class CacheServer extends DatabaseHandler {
     return serverTable.getResourceWorldResetTime() < System.currentTimeMillis();
   }
 
+  public void setNextReset(long value) {
+    serverTable.setResourceWorldResetTime(value);
+    updateServerDatabase(serverTable);
+  }
+
   public void setNextReset() {
     serverTable.setResourceWorldResetTime(System.currentTimeMillis() + CoreUtil.millisecondsToMidnightPST());
     updateServerDatabase(serverTable);

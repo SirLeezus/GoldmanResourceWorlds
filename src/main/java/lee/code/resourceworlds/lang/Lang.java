@@ -10,6 +10,7 @@ public enum Lang {
   PREFIX("&#0076CD&lResource Worlds &6➔ "),
   USAGE("&6&lUsage: &e{0}"),
   NEXT_RESTART("&eNext server restart!"),
+  COMMAND_RESET_SUCCESSFUL("&aAll resource worlds will now reset next restart."),
   WORLD_TELEPORT_SUCCESSFUL("&aYou successfully teleported to the resource world &3{0}&a!"),
   WORLD_TELEPORT_FAILED("&cFailed to teleport to resource world &3{0}&c."),
   COMMAND_HELP_TITLE("&a------------ &7[ &#0076CD&lResource Worlds &7] &a------------"),
