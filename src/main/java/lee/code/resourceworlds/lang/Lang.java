@@ -32,6 +32,7 @@ public enum Lang {
   ERROR_NO_PERMISSION("&cYou do not have permission for this."),
   ERROR_NOT_CONSOLE_COMMAND("&cThis command does not work in console."),
   ERROR_ONE_COMMAND_AT_A_TIME("&cYou're currently processing another command, please wait for it to finish."),
+  ERROR_COMMAND_BLOCKED("&cYou can't run that command in resource worlds."),
   ;
   @Getter private final String string;
 
