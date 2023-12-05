@@ -6,6 +6,7 @@ import lee.code.resourceworlds.commands.TabCompletion;
 import lee.code.resourceworlds.database.CacheManager;
 import lee.code.resourceworlds.database.DatabaseManager;
 import lee.code.resourceworlds.listeners.BlockedCommandListener;
+import lee.code.resourceworlds.listeners.EntitySpawnListener;
 import lee.code.resourceworlds.managers.WorldManager;
 import lee.code.resourceworlds.menus.system.MenuListener;
 import lee.code.resourceworlds.menus.system.MenuManager;
@@ -44,6 +45,7 @@ public class ResourceWorlds  extends JavaPlugin {
   private void registerListeners() {
     getServer().getPluginManager().registerEvents(new MenuListener(menuManager), this);
     getServer().getPluginManager().registerEvents(new BlockedCommandListener(), this);
+    getServer().getPluginManager().registerEvents(new EntitySpawnListener(), this);
   }
 
   private void registerCommands() {

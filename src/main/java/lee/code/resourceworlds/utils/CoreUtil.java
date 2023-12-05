@@ -8,10 +8,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 import java.util.Calendar;
+import java.util.Random;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 public class CoreUtil {
+  private final static Random random = new Random();
 
   public static Component parseColorComponent(String text) {
     final LegacyComponentSerializer serializer = LegacyComponentSerializer.legacyAmpersand();
@@ -58,5 +60,9 @@ public class CoreUtil {
   public static String capitalize(String message) {
     final String format = message.toLowerCase().replaceAll("_", " ");
     return WordUtils.capitalize(format);
+  }
+
+  public static boolean canSpawnEntityRNG(int percent) {
+    return random.nextInt(100) < percent;
   }
 }
